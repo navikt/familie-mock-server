@@ -1,0 +1,38 @@
+{
+  "name": "familie-mock-server",
+  "version": "1.0.0",
+  "description": "Mock server for familie",
+  "main": "app.ts",
+  "repository": "https://github.com/navikt/familie-mock-server.git",
+  "author": "NAV",
+  "license": "MIT",
+  "private": true,
+  "scripts": {
+    "start": "node ./dist/app.js",
+    "start:dev": "tsc-watch --onSuccess \"node ./dist/app.js\"",
+    "build": "tsc"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "pretty-quick --staged"
+    }
+  },
+  "dependencies": {
+    "@types/express": "^4.17.3",
+    "@types/express-graphql": "^0.9.0",
+    "express": "^4.17.1",
+    "express-graphql": "^0.9.0",
+    "graphql": "^14.6.0",
+    "graphql-tools": "^4.0.7",
+    "winston": "^3.2.1"
+  },
+  "devDependencies": {
+    "husky": "^4.2.3",
+    "nodemon": "^2.0.2",
+    "prettier": "^2.0.1",
+    "pretty-quick": "^2.0.1",
+    "tsc-watch": "^4.2.3",
+    "tslint": "^6.1.0",
+    "typescript": "^3.8.3"
+  }
+}

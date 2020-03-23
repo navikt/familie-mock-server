@@ -1,0 +1,17 @@
+{
+    "foedsel": [
+        {
+            "foedselsdato": "1990-01-01"
+        }
+    ],
+    "navn": [{
+        "fornavn": "Mor",
+        "mellomnavn": null,
+        "etternavn": "Moresen"
+    }],
+    "kjoenn": [
+        {
+            "kjoenn": "KVINNE"
+        }
+    ]
+}

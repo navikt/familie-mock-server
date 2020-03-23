@@ -1,0 +1,17 @@
+{
+    "foedsel": [
+        {
+            "foedselsdato": "2019-01-01"
+        }
+    ],
+    "navn": [{
+        "fornavn": "Barn",
+        "mellomnavn": null,
+        "etternavn": "Barnesen"
+    }],
+    "kjoenn": [
+        {
+            "kjoenn": "MANN"
+        }
+    ]
+}
