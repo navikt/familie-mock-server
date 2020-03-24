@@ -3,6 +3,11 @@ on:
   push:
     branches:
       - '**'
+
+env:
+  IMAGE: docker.pkg.github.com/${{ github.repository }}/familie-mock-server:${{ github.sha }}
+  IMAGE_LATEST: docker.pkg.github.com/${{ github.repository }}/familie-mock-server:latest
+
 jobs:
   deploy-to-repo:
     name: Bygg app/image, push til github
@@ -16,11 +21,11 @@ jobs:
           yarn build
       - name: Bygg Docker image
         run: |
-          docker build . -t ${IMAGE} -t ${IMAGE}:latest
+          docker build . -t ${IMAGE} -t ${IMAGE_LATEST}
       - name: Login to Github Package Registry
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           docker login docker.pkg.github.com -u ${GITHUB_REPOSITORY} -p ${GITHUB_TOKEN}
           docker push ${IMAGE}
-          docker push ${IMAGE}:latest
+          docker push ${IMAGE_LATEST}
