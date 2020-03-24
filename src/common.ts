@@ -4,7 +4,7 @@ import { Express, Request, Response, NextFunction } from 'express';
 
 export const configureLatency = (app: Express) => {
     app.use((_req: Request, _res: Response, next: NextFunction) => {
-        setTimeout(next, Math.floor(Math.random() * 2000 + 100));
+        setTimeout(next, Math.floor(Math.random() * 300 + 100));
     });
 };
 

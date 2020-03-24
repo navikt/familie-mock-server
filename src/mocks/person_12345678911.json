@@ -4,14 +4,22 @@
             "foedselsdato": "1995-01-01"
         }
     ],
-    "navn": [{
-        "fornavn": "Far",
-        "mellomnavn": null,
-        "etternavn": "Faresen"
-    }],
+    "navn": [
+        {
+            "fornavn": "Far",
+            "mellomnavn": null,
+            "etternavn": "Faresen"
+        }
+    ],
     "kjoenn": [
         {
             "kjoenn": "MANN"
+        }
+    ],
+    "familierelasjoner": [
+        {
+            "relatertPersonsIdent": "01101800033",
+            "relatertPersonsRolle": "BARN"
         }
     ]
 }
