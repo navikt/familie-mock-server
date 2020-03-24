@@ -2,10 +2,12 @@ name: Build-Deploy
 on:
   push:
     branches:
-      - '*'
+      - '**'
+
 env:
-  REF: ${{ github.ref }} # refs/tags/<tag>
-  IMAGE_UTEN_TAG: docker.pkg.github.com/${{ github.repository }}/familie-mock-server
+  IMAGE: docker.pkg.github.com/${{ github.repository }}/familie-mock-server:${{ github.sha }}
+  IMAGE_LATEST: docker.pkg.github.com/${{ github.repository }}/familie-mock-server:latest
+
 jobs:
   deploy-to-repo:
     name: Bygg app/image, push til github
@@ -13,17 +15,17 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
-      - name: Set IMAGE env
-        run: echo ::set-env name=IMAGE::$(echo ${IMAGE_UTEN_TAG}:${TAG})
       - name: Bygg app
-        run: yarn build
+        run: |
+          yarn
+          yarn build
       - name: Bygg Docker image
         run: |
-          docker build -t ${IMAGE} -t ${IMAGE_UTEN_TAG}:latest .
+          docker build . -t ${IMAGE} -t ${IMAGE_LATEST}
       - name: Login to Github Package Registry
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           docker login docker.pkg.github.com -u ${GITHUB_REPOSITORY} -p ${GITHUB_TOKEN}
           docker push ${IMAGE}
-          docker push ${IMAGE_UTEN_TAG}:latest
+          docker push ${IMAGE_LATEST}
