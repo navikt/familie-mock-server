@@ -4,14 +4,22 @@
             "foedselsdato": "2019-01-01"
         }
     ],
-    "navn": [{
-        "fornavn": "Barn",
-        "mellomnavn": null,
-        "etternavn": "Barnesen"
-    }],
+    "navn": [
+        {
+            "fornavn": "Barn",
+            "mellomnavn": null,
+            "etternavn": "Barnesen"
+        }
+    ],
     "kjoenn": [
         {
             "kjoenn": "MANN"
+        }
+    ],
+    "familierelasjoner": [
+        {
+            "relatertPersonsIdent": "12345678901",
+            "relatertPersonsRolle": "MOR"
         }
     ]
 }
