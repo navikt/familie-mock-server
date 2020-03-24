@@ -16,7 +16,9 @@ jobs:
       - name: Set IMAGE env
         run: echo ::set-env name=IMAGE::$(echo ${IMAGE_UTEN_TAG}:${TAG})
       - name: Bygg app
-        run: yarn build
+        run: |
+          yarn
+          yarn build
       - name: Bygg Docker image
         run: |
           docker build -t ${IMAGE} -t ${IMAGE_UTEN_TAG}:latest .
