@@ -2,7 +2,6 @@ import { Express, Request, Response } from 'express';
 
 export default (app: Express) => {
     app.get('/rest/aktoerregister/api/v1/identer', (req: Request, res: Response) => {
-        console.log(req.headers);
         const ident = req.headers['nav-personidenter'];
 
         res.json({
