@@ -1,11 +1,18 @@
 import fs from 'fs';
 import path from 'path';
+import shortid from 'shortid';
 import { Express, Request, Response, NextFunction } from 'express';
+
+shortid.characters('0123456789');
 
 export const configureLatency = (app: Express) => {
     app.use((_req: Request, _res: Response, next: NextFunction) => {
         setTimeout(next, Math.floor(Math.random() * 300 + 100));
     });
+};
+
+export const getId = () => {
+    return shortid.generate();
 };
 
 export const lesMockFil = (filnavn: string): string => {

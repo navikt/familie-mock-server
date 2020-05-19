@@ -1,0 +1,18 @@
+{
+    "id": 30531,
+    "tildeltEnhetsnr": "4820",
+    "behandlesAvApplikasjon": "FS22",
+    "saksreferanse": "1654564564",
+    "aktoerId": "2939997086069",
+    "beskrivelse": "string",
+    "tema": "BAR",
+    "oppgavetype": "BEH_SAK",
+    "versjon": 1,
+    "fristFerdigstillelse": "2018-02-21",
+    "aktivDato": "2020-02-07",
+    "opprettetTidspunkt": "2020-02-07T14:49:01.993+01:00",
+    "opprettetAv": "srvfamilie-ks-opps",
+    "prioritet": "NORM",
+    "status": "OPPRETTET",
+    "metadata": {}
+}
