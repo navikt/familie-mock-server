@@ -1,5 +1,5 @@
 import { Express, Request, Response } from 'express';
-import { getId } from 'common';
+import { getId } from '../common';
 
 export default (app: Express) => {
     app.post(
