@@ -1,5 +1,5 @@
 import { Express, Request, Response } from 'express';
-import { getId } from 'common';
+import { getId } from '../common';
 
 export default (app: Express) => {
     app.post('/rest/api/dokdist/rest/v1/distribuerjournalpost', (_req: Request, res: Response) => {
