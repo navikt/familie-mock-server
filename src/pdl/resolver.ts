@@ -1,7 +1,11 @@
 import { lesMockFil } from '../common';
 
 const hentPerson = (ident: string) => {
-    return lesMockFil(`person_${ident}.json`);
+    try {
+        return lesMockFil(`person_${ident}.json`);
+    } catch {
+        return undefined;
+    }
 };
 
 export default {
@@ -14,6 +18,22 @@ export default {
             } else {
                 return person;
             }
+        },
+        hentIdenter(_obj: any, args: any, _context: any, _info: any) {
+            return {
+                identer: [
+                    {
+                        ident: args.ident,
+                        gruppe: 'FOLKEREGISTERIDENT',
+                        historisk: false,
+                    },
+                    {
+                        ident: 9876543210123,
+                        gruppe: 'AKTORID',
+                        historisk: false,
+                    },
+                ],
+            };
         },
     },
 };
