@@ -27,6 +27,11 @@ export default {
                         gruppe: 'FOLKEREGISTERIDENT',
                         historisk: false,
                     },
+                    {
+                        ident: 9876543210123,
+                        gruppe: 'AKTORID',
+                        historisk: false,
+                    },
                 ],
             };
         },
