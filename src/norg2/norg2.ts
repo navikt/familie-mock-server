@@ -6,11 +6,8 @@ export default (app: Express) => {
         return lesMockFil(`enhet_${enhet ? enhet : '4820'}.json`);
     };
 
-    app.get(
-        '/rest/api/norg2/api/v1/enhet/:enhet/kontaktinformasjon',
-        (req: Request, res: Response) => {
-            const { enhet } = req.params;
-            res.json(hentEnhet(enhet));
-        },
-    );
+    app.get('/rest/api/norg2/api/v1/enhet/:enhet', (req: Request, res: Response) => {
+        const { enhet } = req.params;
+        res.json(hentEnhet(enhet));
+    });
 };
