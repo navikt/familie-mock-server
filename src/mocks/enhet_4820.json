@@ -1,0 +1,26 @@
+{
+    "id": 100001166,
+    "enhetNr": "4820",
+    "telefonnummer": "55553333",
+    "telefonnummerKommentar": "NAV Kontaktsenter: (+47) 55 55 33 33. NAV Kontaktsenter Pensjon: (+47) 55 55 33 34",
+    "faksnummer": "67875801",
+    "epost": null,
+    "postadresse": {
+        "type": "postboksadresse",
+        "postnummer": "9811",
+        "poststed": "VADSØ",
+        "postboksnummer": "608",
+        "postboksanlegg": null
+    },
+    "besoeksadresse": {
+        "type": "stedsadresse",
+        "postnummer": "9800",
+        "poststed": "VADSØ",
+        "gatenavn": "W. Andersensgate",
+        "husnummer": "6",
+        "husbokstav": null,
+        "adresseTilleggsnavn": null
+    },
+    "spesielleOpplysninger": null,
+    "publikumsmottak": []
+}
