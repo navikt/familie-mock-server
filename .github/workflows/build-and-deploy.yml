@@ -27,5 +27,8 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           docker login docker.pkg.github.com -u ${GITHUB_REPOSITORY} -p ${GITHUB_TOKEN}
-          docker push ${IMAGE}
-          docker push ${IMAGE_LATEST}
+      - name: Push Docker image med versjonstag
+        run: docker push ${IMAGE}
+      - name: Push Docker image med 'latest' tag
+        if: github.ref == 'refs/heads/master'
+        run: docker push ${IMAGE_LATEST}
