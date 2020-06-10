@@ -183,6 +183,13 @@ enum AdressebeskyttelseGradering {
     UGRADERT
 }
 
+type Koordinater {
+    x: Float
+    y: Float
+    z: Float
+    kvalitet: Int
+}
+
 type Metadata {
     # I PDL så får alle forekomster av en opplysning en ID som representerer dens unike forekomst.
     # F.eks, så vil en Opprett ha ID X, korriger ID Y (der hvor den spesifiserer at den korrigerer X).
