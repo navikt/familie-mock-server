@@ -87,6 +87,7 @@ type Vegadresse {
     kommunenummer: String
     tilleggsnavn: String
     postnummer: String
+    koordinater: Koordinater
 }
 
 type Matrikkeladresse {
@@ -95,6 +96,7 @@ type Matrikkeladresse {
     tilleggsnavn: String
     postnummer: String
     kommunenummer: String
+    koordinater: Koordinater
 }
 
 type UkjentBosted {
