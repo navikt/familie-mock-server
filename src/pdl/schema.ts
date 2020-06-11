@@ -39,6 +39,8 @@ type Person {
     kjoenn(historikk: Boolean = false): [Kjoenn!]!
     navn(historikk: Boolean = false): [Navn!]!
     adressebeskyttelse(historikk: Boolean = false): [Adressebeskyttelse!]!
+    bostedsadresse(historikk: Boolean = false): [Bostedsadresse!]!
+    sivilstand(historikk: Boolean = false):[Sivilstand!]!
 }
 
 type Foedsel {
@@ -64,6 +66,68 @@ enum Familierelasjonsrolle {
     MOR
     FAR
     MEDMOR
+}
+
+type Bostedsadresse {
+    angittFlyttedato: Date
+    coAdressenavn: String
+    vegadresse: Vegadresse
+    matrikkeladresse: Matrikkeladresse
+    ukjentBosted: UkjentBosted
+    folkeregistermetadata: Folkeregistermetadata!
+    metadata: Metadata!
+}
+
+type Vegadresse {
+    matrikkelId: Int
+    husnummer: String
+    husbokstav: String
+    bruksenhetsnummer: String
+    adressenavn: String
+    kommunenummer: String
+    tilleggsnavn: String
+    postnummer: String
+    koordinater: Koordinater
+}
+
+type Matrikkeladresse {
+    matrikkelId: Int
+    bruksenhetsnummer: String
+    tilleggsnavn: String
+    postnummer: String
+    kommunenummer: String
+    koordinater: Koordinater
+}
+
+type UkjentBosted {
+    bostedskommune: String
+}
+
+type Sivilstand {
+    type: Sivilstandstype!
+    gyldigFraOgMed: Date
+    myndighet: String
+    kommune: String
+    sted: String
+    utland: String
+    relatertVedSivilstand: String
+    bekreftelsesdato: String
+
+    folkeregistermetadata: Folkeregistermetadata
+    metadata: Metadata!
+}
+
+enum Sivilstandstype {
+    UOPPGITT
+    UGIFT
+    GIFT
+    ENKE_ELLER_ENKEMANN
+    SKILT
+    SEPARERT
+    REGISTRERT_PARTNER
+    SEPARERT_PARTNER
+    SKILT_PARTNER
+    GJENLEVENDE_PARTNER
 }
 
 type Adressebeskyttelse {
@@ -117,6 +181,13 @@ enum AdressebeskyttelseGradering {
     STRENGT_FORTROLIG,
     FORTROLIG,
     UGRADERT
+}
+
+type Koordinater {
+    x: Float
+    y: Float
+    z: Float
+    kvalitet: Int
 }
 
 type Metadata {
