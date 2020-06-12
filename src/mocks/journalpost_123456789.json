@@ -1,0 +1,40 @@
+{
+  "journalpostId": "123456789",
+  "journalposttype": "I",
+  "journalstatus": "MOTTATT",
+  "tema": "BAR",
+  "behandlingstema": "ab0180",
+  "tittel": "Ordinær barnetrygd",
+  "sak": null,
+  "bruker": {
+    "id": "12345678901",
+    "type": "FNR"
+  },
+  "journalforendeEnhet": null,
+  "kanal": "SKAN_NETS",
+  "dokumenter": [
+    {
+      "dokumentInfoId": "454002660",
+      "tittel": "Ordinær barnetrygd",
+      "brevkode": "NAV 33-00.07",
+      "dokumentstatus": null,
+      "dokumentvarianter": [
+        {
+          "variantformat": "ARKIV"
+        }
+      ],
+      "logiskeVedlegg": []
+    }
+  ],
+  "relevanteDatoer": [
+    {
+      "dato": "2020-06-10T12:30:36",
+      "datotype": "DATO_DOKUMENT"
+    },
+    {
+      "dato": "2020-06-09T02:00:00",
+      "datotype": "DATO_REGISTRERT"
+    }
+  ],
+  "datoMottatt": "2020-06-09T02:00:00"
+}

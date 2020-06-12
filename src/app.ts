@@ -7,6 +7,7 @@ import configureDokdist from './dokdist/dokdist';
 import configureDokarkiv from './dokarkiv/dokarkiv';
 import configureOppgave from './oppgave/oppgave';
 import configureNorg2 from './norg2/norg2';
+import configureSaf from './saf/saf';
 
 import { configureLatency } from './common';
 
@@ -26,6 +27,7 @@ configureDokarkiv(app);
 configureDokdist(app);
 configureOppgave(app);
 configureNorg2(app);
+configureSaf(app);
 
 app.listen(port, '0.0.0.0', (err: Error) => {
     if (err) {
