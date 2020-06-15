@@ -14,6 +14,16 @@ export default (app: Express) => {
         },
     );
 
+    app.put(
+        '/rest/api/dokarkiv/rest/journalpostapi/v1/journalpost/:journalpostId',
+        (_req: Request, res: Response) => {
+            const { journalpostId } = _req.params;
+            res.json({
+                journalpostId: journalpostId,
+            });
+        },
+    );
+
     app.patch(
         '/rest/api/dokarkiv/rest/journalpostapi/v1/journalpost/:journalpostId/ferdigstill',
         (_req: Request, res: Response) => {
