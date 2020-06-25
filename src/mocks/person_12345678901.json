@@ -27,10 +27,10 @@
         {
             "ukjentBosted": null,
             "vegadresse": {
-                "matrikkelId": null,
+                "matrikkelId": 100,
                 "husnummer": "3",
                 "husbokstav": null,
-                "bruksenhetsnummer": null,
+                "bruksenhetsnummer": "H111",
                 "adressenavn": "OTTO SVERDRUPS VEG",
                 "kommunenummer": "1566",
                 "tilleggsnavn": null,
