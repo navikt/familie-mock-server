@@ -1,0 +1,49 @@
+{
+    "foedsel": [
+        {
+            "foedselsdato": "2020-06-01"
+        }
+    ],
+    "navn": [
+        {
+            "fornavn": "Barn Hendelse",
+            "mellomnavn": null,
+            "etternavn": "Barnesen"
+        }
+    ],
+    "kjoenn": [
+        {
+            "kjoenn": "MANN"
+        }
+    ],
+    "familierelasjoner": [
+        {
+            "relatertPersonsIdent": "01129400001",
+            "relatertPersonsRolle": "MOR"
+        }
+    ],
+    "adressebeskyttelse": [],
+    "bostedsadresse": [
+        {
+            "ukjentBosted": null,
+            "vegadresse": {
+                "matrikkelId": 100,
+                "husnummer": "3",
+                "husbokstav": null,
+                "bruksenhetsnummer": "H111",
+                "adressenavn": "OTTO SVERDRUPS VEG",
+                "kommunenummer": "1566",
+                "tilleggsnavn": null,
+                "postnummer": "6650"
+            },
+            "matrikkeladresse": null
+        }
+    ],
+    "sivilstand": [
+        {
+            "type": "UGIFT"
+        }
+    ],
+    "doedsfall": [],
+    "vergemaalEllerFremtidsfullmakt": []
+}
