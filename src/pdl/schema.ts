@@ -34,13 +34,15 @@ enum IdentGruppe {
 }
 
 type Person {
+    adressebeskyttelse(historikk: Boolean = false): [Adressebeskyttelse!]!
+    bostedsadresse(historikk: Boolean = false): [Bostedsadresse!]!
+    doedsfall: [Doedsfall!]!
     familierelasjoner: [Familierelasjon!]!
     foedsel: [Foedsel!]!
     kjoenn(historikk: Boolean = false): [Kjoenn!]!
     navn(historikk: Boolean = false): [Navn!]!
-    adressebeskyttelse(historikk: Boolean = false): [Adressebeskyttelse!]!
-    bostedsadresse(historikk: Boolean = false): [Bostedsadresse!]!
     sivilstand(historikk: Boolean = false):[Sivilstand!]!
+    vergemaalEllerFremtidsfullmakt(historikk: Boolean = false): [VergemaalEllerFremtidsfullmakt!]!
 }
 
 type Foedsel {
@@ -49,6 +51,14 @@ type Foedsel {
     foedeland: String
     foedested: String
     foedekommune: String
+}
+
+type Doedsfall {
+    doedsdato: Date
+}
+
+type VergemaalEllerFremtidsfullmakt {
+    type: String
 }
 
 type Kjoenn {
