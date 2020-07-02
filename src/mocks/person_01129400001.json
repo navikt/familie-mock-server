@@ -1,0 +1,49 @@
+{
+    "foedsel": [
+        {
+            "foedselsdato": "1994-12-01"
+        }
+    ],
+    "navn": [
+        {
+            "fornavn": "Mor Hendelse",
+            "mellomnavn": null,
+            "etternavn": "Moresen"
+        }
+    ],
+    "kjoenn": [
+        {
+            "kjoenn": "KVINNE"
+        }
+    ],
+    "familierelasjoner": [
+        {
+            "relatertPersonsIdent": "01062000001",
+            "relatertPersonsRolle": "BARN"
+        }
+    ],
+    "adressebeskyttelse": [],
+    "bostedsadresse": [
+        {
+            "ukjentBosted": null,
+            "vegadresse": {
+                "matrikkelId": 100,
+                "husnummer": "3",
+                "husbokstav": null,
+                "bruksenhetsnummer": "H111",
+                "adressenavn": "OTTO SVERDRUPS VEG",
+                "kommunenummer": "1566",
+                "tilleggsnavn": null,
+                "postnummer": "6650"
+            },
+            "matrikkeladresse": null
+        }
+    ],
+    "sivilstand": [
+        {
+            "type": "UGIFT"
+        }
+    ],
+    "doedsfall": [],
+    "vergemaalEllerFremtidsfullmakt": []
+}
