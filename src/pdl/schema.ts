@@ -43,6 +43,7 @@ type Person {
     navn(historikk: Boolean = false): [Navn!]!
     sivilstand(historikk: Boolean = false):[Sivilstand!]!
     vergemaalEllerFremtidsfullmakt(historikk: Boolean = false): [VergemaalEllerFremtidsfullmakt!]!
+    statsborgerskap(historikk: Boolean = false): [Statsborgerskap!]!
 }
 
 type Foedsel {
@@ -191,6 +192,14 @@ enum AdressebeskyttelseGradering {
     STRENGT_FORTROLIG,
     FORTROLIG,
     UGRADERT
+}
+
+type Statsborgerskap {
+    land: String!
+    gyldigFraOgMed: Date
+    gyldigTilOgMed: Date
+    folkeregistermetadata: Folkeregistermetadata!
+    metadata: Metadata!
 }
 
 type Koordinater {

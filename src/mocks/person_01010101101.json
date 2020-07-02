@@ -45,5 +45,12 @@
         }
     ],
     "doedsfall": [],
-    "vergemaalEllerFremtidsfullmakt": []
+    "vergemaalEllerFremtidsfullmakt": [],
+    "statsborgerskap": [
+        {
+            "land": "NOR",
+            "gyldigFraOgMed": null,
+            "gyldigTilOgMed": null
+        }
+    ]
 }
