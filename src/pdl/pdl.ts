@@ -11,4 +11,11 @@ export default (app: Express) => {
             graphiql: true,
         }),
     );
+    app.get(
+        '/rest/api/pdl/graphql',
+        grahqlHttp({
+            schema: schema,
+            graphiql: true,
+        }),
+    );
 };
