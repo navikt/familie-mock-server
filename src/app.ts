@@ -9,6 +9,7 @@ import configureOppgave from './oppgave/oppgave';
 import configureNorg2 from './norg2/norg2';
 import configureSaf from './saf/saf';
 import configureKodeverk from './kodeverk/kodeverk';
+import configureAareg from './aareg/aareg';
 
 import { configureLatency } from './common';
 
@@ -30,6 +31,7 @@ configureOppgave(app);
 configureNorg2(app);
 configureSaf(app);
 configureKodeverk(app);
+configureAareg(app);
 
 app.listen(port, '0.0.0.0', (err: Error) => {
     if (err) {
