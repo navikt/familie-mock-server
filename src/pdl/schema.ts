@@ -44,6 +44,7 @@ type Person {
     sivilstand(historikk: Boolean = false):[Sivilstand!]!
     vergemaalEllerFremtidsfullmakt(historikk: Boolean = false): [VergemaalEllerFremtidsfullmakt!]!
     statsborgerskap(historikk: Boolean = false): [Statsborgerskap!]!
+    opphold(historikk: Boolean = false):[Opphold!]!
 }
 
 type Foedsel {
@@ -200,6 +201,20 @@ type Statsborgerskap {
     gyldigTilOgMed: Date
     folkeregistermetadata: Folkeregistermetadata!
     metadata: Metadata!
+}
+
+type Opphold {
+    type: Oppholdstillatelse!
+    oppholdFra: Date
+    oppholdTil: Date
+    folkeregistermetadata: Folkeregistermetadata!
+    metadata: Metadata!
+}
+
+enum Oppholdstillatelse {
+    MIDLERTIDIG
+    PERMANENT
+    OPPLYSNING_MANGLER
 }
 
 type Koordinater {

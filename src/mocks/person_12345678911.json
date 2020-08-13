@@ -52,5 +52,12 @@
             "gyldigFraOgMed": null,
             "gyldigTilOgMed": null
         }
+    ],
+    "opphold": [
+        {
+            "type": "PERMANENT",
+            "oppholdFra": null,
+            "oppholdTil": null
+        }
     ]
 }
