@@ -6,7 +6,7 @@ export default (app: Express) => {
         return lesMockFil(`oppgave_1.json`);
     };
 
-    app.get('/rest/api/oppgave/api/v1/oppgaver', (_req: Request, res: Response) => {
+    app.get('/rest/api/oppgave/api/v1/oppgaver/:oppgave', (_req: Request, res: Response) => {
         res.json(hentOppgave());
     });
 

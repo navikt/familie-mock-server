@@ -88,6 +88,8 @@ type Bostedsadresse {
     ukjentBosted: UkjentBosted
     folkeregistermetadata: Folkeregistermetadata!
     metadata: Metadata!
+    gyldigFraOgMed: DateTime
+    gyldigTilOgMed: DateTime
 }
 
 type Vegadresse {
@@ -124,7 +126,6 @@ type Sivilstand {
     utland: String
     relatertVedSivilstand: String
     bekreftelsesdato: String
-
     folkeregistermetadata: Folkeregistermetadata
     metadata: Metadata!
 }

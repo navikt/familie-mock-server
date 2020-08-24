@@ -36,7 +36,9 @@
                 "tilleggsnavn": null,
                 "postnummer": "6650"
             },
-            "matrikkeladresse": null
+            "matrikkeladresse": null,
+            "gyldigFraOgMed": null,
+            "gyldigTilOgMed": null
         }
     ],
     "sivilstand": [
