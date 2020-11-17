@@ -10,6 +10,7 @@ import configureNorg2 from './norg2/norg2';
 import configureSaf from './saf/saf';
 import configureKodeverk from './kodeverk/kodeverk';
 import configureAareg from './aareg/aareg';
+import configureSak from './sak/sak';
 
 import { configureLatency } from './common';
 
@@ -17,7 +18,7 @@ const port = 1337;
 const app = express();
 
 app.use((req: Request, _: Response, next: NextFunction) => {
-    logInfo(`[${req.method}] ${req.originalUrl}`);
+    logInfo(`[${req.method}] ${req.originalUrl} [${req.body}]`);
     next();
 });
 
@@ -32,6 +33,7 @@ configureNorg2(app);
 configureSaf(app);
 configureKodeverk(app);
 configureAareg(app);
+configureSak(app);
 
 app.listen(port, '0.0.0.0', (err: Error) => {
     if (err) {
