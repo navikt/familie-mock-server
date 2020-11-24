@@ -1,5 +1,5 @@
 import { Express, Request, Response } from 'express';
-import { getId } from '../common';
+import { cachedFerdigstilte, getId } from '../common';
 
 export default (app: Express) => {
     app.post(
@@ -27,11 +27,18 @@ export default (app: Express) => {
     app.patch(
         '/rest/api/dokarkiv/rest/journalpostapi/v1/journalpost/:journalpostId/ferdigstill',
         (_req: Request, res: Response) => {
+            const { journalpostId } = _req.params;
+            cachedFerdigstilte.set(journalpostId, 'FERDIGSTILL');
             res.status(200).send('OK');
         },
     );
 
     app.get('/rest/api/dokarkiv/internal/isAlive', (_req: Request, res: Response) => {
+        res.status(200).send();
+    });
+
+    app.delete('/rest/api/dokarkiv/internal/ferdigstill/clear', (_req: Request, res: Response) => {
+        cachedFerdigstilte.clear();
         res.status(200).send();
     });
 };

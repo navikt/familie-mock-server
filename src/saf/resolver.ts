@@ -1,4 +1,4 @@
-import { lesMockFil } from '../common';
+import { cachedFerdigstilte, lesMockFil } from '../common';
 
 const hentJournalpost = (ident: string) => {
     try {
@@ -11,7 +11,13 @@ const hentJournalpost = (ident: string) => {
 export default {
     Query: {
         journalpost(_obj: any, args: any, _context: any, _info: any) {
-            const journalpost = hentJournalpost(args.journalpostId);
+            let journalpost = hentJournalpost(args.journalpostId);
+
+            if (cachedFerdigstilte.has(args.journalpostId)) {
+                journalpost = hentJournalpost(args.journalpostId + '_FERDIG');
+            } else {
+                journalpost = hentJournalpost(args.journalpostId);
+            }
 
             if (journalpost === undefined) {
                 throw new Error('Journalpost finnes ikke');
