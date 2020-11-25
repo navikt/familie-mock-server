@@ -4,7 +4,7 @@ const hentJournalpost = (ident: string) => {
     try {
         return lesMockFil(`journalpost_${ident}.json`);
     } catch {
-        return undefined;
+        return lesMockFil(`journalpost_default.json`);
     }
 };
 
