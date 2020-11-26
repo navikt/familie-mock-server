@@ -10,6 +10,14 @@ export default (app: Express) => {
         res.json(hentOppgave());
     });
 
+    app.get('/rest/api/oppgave/api/v1/oppgaver/:oppgaveId', (_req: Request, res: Response) => {
+        res.json(hentOppgave());
+    });
+
+    app.patch('/rest/api/oppgave/api/v1/oppgaver/:oppgaveId', (_req: Request, res: Response) => {
+        res.json(hentOppgave());
+    });
+
     app.post('/rest/api/oppgave/api/v1/oppgaver', (_req: Request, res: Response) => {
         res.json(hentOppgave());
     });
