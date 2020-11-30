@@ -20,3 +20,5 @@ export const lesMockFil = (filnavn: string): string => {
         throw err;
     }
 };
+
+export let cachedFerdigstilte = new Map();
