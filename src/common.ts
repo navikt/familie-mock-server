@@ -3,6 +3,8 @@ import path from 'path';
 import shortid from 'shortid';
 import { Express, Request, Response, NextFunction } from 'express';
 
+export let cachedFerdigstilte = new Map();
+
 export const configureLatency = (app: Express) => {
     app.use((_req: Request, _res: Response, next: NextFunction) => {
         setTimeout(next, Math.floor(Math.random() * 300 + 100));
@@ -21,4 +23,10 @@ export const lesMockFil = (filnavn: string): string => {
     }
 };
 
-export let cachedFerdigstilte = new Map();
+export const lesMockFilUtenParse = (filnavn: string): string => {
+    try {
+        return fs.readFileSync(path.join(__dirname, '/mocks/' + filnavn), 'UTF-8');
+    } catch (err) {
+        throw err;
+    }
+};
