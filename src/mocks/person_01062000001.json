@@ -6,8 +6,8 @@
     ],
     "navn": [
         {
-            "fornavn": "Barn Hendelse",
-            "mellomnavn": null,
+            "fornavn": "Barn",
+            "mellomnavn": "fødselshendelse",
             "etternavn": "Barnesen"
         }
     ],

@@ -1,8 +1,26 @@
-import { lesMockFil } from '../common';
+import { lesMockFilUtenParse } from '../common';
+import dayjs from 'dayjs';
+import { Person, Foedsel, Navn } from './types';
 
-const hentPerson = (ident: string) => {
+const hentPerson = (ident: string): Person | undefined => {
     try {
-        return lesMockFil(`person_${ident}.json`);
+        const person: Person = JSON.parse(lesMockFilUtenParse(`person_${ident}.json`));
+
+        person.foedsel = person.foedsel.map((fødsel: Foedsel) => {
+            if (
+                person.navn.filter((navn: Navn) => navn.mellomnavn === 'fødselshendelse').length >=
+                1
+            ) {
+                return {
+                    ...fødsel,
+                    foedselsdato: dayjs().startOf('month').format('YYYY-MM-DD'),
+                };
+            } else {
+                return fødsel;
+            }
+        });
+
+        return person;
     } catch {
         return undefined;
     }
