@@ -1,6 +1,37 @@
 import { lesMockFilUtenParse } from '../common';
 import dayjs from 'dayjs';
 import { Person, Foedsel, Navn } from './types';
+import { IRestScenarioPerson } from '../scenario/typer';
+import { scenarioCache } from '../scenario/cache';
+
+const lagPersonFraCache = (ident: string): Person | undefined => {
+    try {
+        const defaultPerson: Person = JSON.parse(lesMockFilUtenParse(`person_default.json`));
+        const cachetPerson: IRestScenarioPerson | undefined = scenarioCache[ident];
+
+        if (cachetPerson === undefined) {
+            return hentPerson(ident);
+        }
+
+        defaultPerson.foedsel = [
+            {
+                foedselsdato: cachetPerson.fødselsdato,
+            },
+        ];
+        defaultPerson.navn = [
+            {
+                fornavn: cachetPerson.fornavn,
+                etternavn: cachetPerson.etternavn,
+            },
+        ];
+
+        defaultPerson.familierelasjoner = cachetPerson.familierelasjoner!!;
+
+        return defaultPerson;
+    } catch {
+        return undefined;
+    }
+};
 
 const hentPerson = (ident: string): Person | undefined => {
     try {
@@ -29,7 +60,7 @@ const hentPerson = (ident: string): Person | undefined => {
 export default {
     Query: {
         hentPerson(_obj: any, args: any, _context: any, _info: any) {
-            const person = hentPerson(args.ident);
+            const person = lagPersonFraCache(args.ident);
 
             if (person === undefined) {
                 throw new Error('Personen finnes ikke');

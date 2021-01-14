@@ -1,0 +1,37 @@
+{
+    "foedsel": [],
+    "navn": [],
+    "kjoenn": [{
+        "kjoenn": "KVINNE"
+    }],
+    "familierelasjoner": [],
+    "adressebeskyttelse": [],
+    "bostedsadresse": [
+        {
+            "ukjentBosted": null,
+            "vegadresse": {
+                "matrikkelId": 100,
+                "husnummer": "3",
+                "husbokstav": null,
+                "bruksenhetsnummer": "H111",
+                "adressenavn": "OTTO SVERDRUPS VEG",
+                "kommunenummer": "1566",
+                "tilleggsnavn": null,
+                "postnummer": "6650"
+            },
+            "matrikkeladresse": null,
+            "gyldigFraOgMed": null,
+            "gyldigTilOgMed": null
+
+        }
+    ],
+    "sivilstand": [
+        {
+            "type": "UGIFT"
+        }
+    ],
+    "doedsfall": [],
+    "vergemaalEllerFremtidsfullmakt": [],
+    "statsborgerskap": [],
+    "opphold": []
+}

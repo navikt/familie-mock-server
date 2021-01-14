@@ -1,3 +1,5 @@
+import { Familierelasjon } from '../pdl/types';
+
 export interface IRestScenario {
     søker: IRestScenarioPerson;
     barna: IRestScenarioPerson[];
@@ -5,6 +7,8 @@ export interface IRestScenario {
 
 export interface IRestScenarioPerson {
     ident?: string; // Settes av mock-server
-    statsborgerskap: string;
+    familierelasjoner?: Familierelasjon[]; // Settes av mock-server
     fødselsdato: string;
+    fornavn: string;
+    etternavn: string;
 }
