@@ -11,6 +11,7 @@ import configureSaf from './saf/saf';
 import configureKodeverk from './kodeverk/kodeverk';
 import configureAareg from './aareg/aareg';
 import configureSak from './sak/sak';
+import configureScenario from './scenario/scenario';
 
 import { configureLatency } from './common';
 
@@ -22,7 +23,11 @@ app.use((req: Request, _: Response, next: NextFunction) => {
     next();
 });
 
+app.use(express.json());
+
 configureLatency(app);
+configureScenario(app);
+
 configureAktør(app);
 configurePdl(app);
 configureGraph(app);
