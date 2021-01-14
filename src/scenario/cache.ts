@@ -25,17 +25,19 @@ export const genererFnr = (fødselsdato: string): string => {
 
 export const lagScenarioForPerson = (restScenarioPerson: IRestScenarioPerson) => {
     const ident: string = genererFnr(restScenarioPerson.fødselsdato);
-    const restScenarioPersonMedIdent = {
+    const restScenarioPersonMedIdenter = {
         ...restScenarioPerson,
         ident,
+        aktørId: `${ident}99`,
     };
 
     scenarioCache = {
         ...scenarioCache,
-        [ident]: restScenarioPersonMedIdent,
+        [restScenarioPersonMedIdenter.ident]: restScenarioPersonMedIdenter,
+        [restScenarioPersonMedIdenter.aktørId]: restScenarioPersonMedIdenter,
     };
 
-    return restScenarioPersonMedIdent;
+    return restScenarioPersonMedIdenter;
 };
 
 export const oppdaterFamilierelasjonerForPerson = (

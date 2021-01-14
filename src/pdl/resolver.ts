@@ -69,15 +69,16 @@ export default {
             }
         },
         hentIdenter(_obj: any, args: any, _context: any, _info: any) {
+            const cachetPerson: IRestScenarioPerson | undefined = scenarioCache[args.ident];
             return {
                 identer: [
                     {
-                        ident: args.ident,
+                        ident: cachetPerson ? cachetPerson.ident : args.ident,
                         gruppe: 'FOLKEREGISTERIDENT',
                         historisk: false,
                     },
                     {
-                        ident: 9876543210123,
+                        ident: cachetPerson ? cachetPerson.aktørId : 9876543210123,
                         gruppe: 'AKTORID',
                         historisk: false,
                     },
