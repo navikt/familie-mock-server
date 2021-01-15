@@ -23,10 +23,7 @@ app.use((req: Request, _: Response, next: NextFunction) => {
     next();
 });
 
-app.use(express.json());
-
 configureLatency(app);
-configureScenario(app);
 
 configureAktør(app);
 configurePdl(app);
@@ -39,6 +36,9 @@ configureSaf(app);
 configureKodeverk(app);
 configureAareg(app);
 configureSak(app);
+
+app.use(express.json());
+configureScenario(app);
 
 app.listen(port, '0.0.0.0', (err: Error) => {
     if (err) {
