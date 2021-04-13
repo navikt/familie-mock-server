@@ -37,7 +37,8 @@ type Person {
     adressebeskyttelse(historikk: Boolean = false): [Adressebeskyttelse!]!
     bostedsadresse(historikk: Boolean = false): [Bostedsadresse!]!
     doedsfall: [Doedsfall!]!
-    familierelasjoner: [Familierelasjon!]!
+    familierelasjoner : [Familierelasjon!]!
+    forelderBarnRelasjon: [ForelderBarnRelasjon!]!
     foedsel: [Foedsel!]!
     kjoenn(historikk: Boolean = false): [Kjoenn!]!
     navn(historikk: Boolean = false): [Navn!]!
@@ -65,6 +66,12 @@ type VergemaalEllerFremtidsfullmakt {
 
 type Kjoenn {
     kjoenn: KjoennType
+}
+
+type ForelderBarnRelasjon {
+    relatertPersonsIdent: String!
+    relatertPersonsRolle: Familierelasjonsrolle!
+    minRolleForPerson: Familierelasjonsrolle
 }
 
 type Familierelasjon {

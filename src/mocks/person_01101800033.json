@@ -22,6 +22,12 @@
             "relatertPersonsRolle": "MOR"
         }
     ],
+    "forelderBarnRelasjon": [
+        {
+            "relatertPersonsIdent": "12345678901",
+            "relatertPersonsRolle": "MOR"
+        }
+    ],
     "adressebeskyttelse": [],
     "bostedsadresse": [
         {

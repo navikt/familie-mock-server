@@ -22,6 +22,12 @@
             "relatertPersonsRolle": "BARN"
         }
     ],
+    "forelderBarnRelasjon": [
+        {
+            "relatertPersonsIdent": "01062000001",
+            "relatertPersonsRolle": "BARN"
+        }
+    ],
     "adressebeskyttelse": [],
     "bostedsadresse": [
         {
