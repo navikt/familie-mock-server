@@ -221,6 +221,7 @@ export type Person = {
     bostedsadresse: Array<Bostedsadresse>;
     doedsfall: Array<Doedsfall>;
     familierelasjoner: Array<Familierelasjon>;
+    forelderBarnRelasjon: Array<Familierelasjon>;
     foedsel: Array<Foedsel>;
     kjoenn: Array<Kjoenn>;
     navn: Array<Navn>;

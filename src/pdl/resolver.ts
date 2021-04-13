@@ -26,6 +26,7 @@ const lagPersonFraCache = (ident: string): Person | undefined => {
         ];
 
         defaultPerson.familierelasjoner = cachetPerson.familierelasjoner!!;
+        defaultPerson.forelderBarnRelasjon = cachetPerson.familierelasjoner!!;
 
         return defaultPerson;
     } catch {
