@@ -24,6 +24,22 @@ export default (app: Express) => {
         },
     );
 
+    app.post(
+        '/rest/api/dokarkiv/rest/journalpostapi/v1/dokumentInfo/:dokumentInfo/logiskVedlegg/',
+        (_req: Request, res: Response) => {
+            res.json({
+                logiskVedleggId: 123,
+            });
+        },
+    );
+
+    app.delete(
+        '/rest/api/dokarkiv/rest/journalpostapi/v1/dokumentInfo/:dokumentInfo/logiskVedlegg/:logiskVedleggId',
+        (_req: Request, res: Response) => {
+            res.status(200).send();
+        },
+    );
+
     app.patch(
         '/rest/api/dokarkiv/rest/journalpostapi/v1/journalpost/:journalpostId/ferdigstill',
         (_req: Request, res: Response) => {

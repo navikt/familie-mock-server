@@ -20,7 +20,7 @@ const port = 1337;
 const app = express();
 
 app.use((req: Request, _: Response, next: NextFunction) => {
-    logInfo(`[${req.method}] ${req.originalUrl} [${req.body}]`);
+    logInfo(`[${req.method}] ${req.originalUrl}`);
     next();
 });
 
