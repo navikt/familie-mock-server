@@ -12,4 +12,5 @@ export interface IRestScenarioPerson {
     fødselsdato: string;
     fornavn: string;
     etternavn: string;
+    infotrygdSaker?: string;
 }
