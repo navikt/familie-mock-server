@@ -5,8 +5,8 @@ on:
       - '**'
 
 env:
-  IMAGE: docker.pkg.github.com/${{ github.repository }}/familie-mock-server:${{ github.sha }}
-  IMAGE_LATEST: docker.pkg.github.com/${{ github.repository }}/familie-mock-server:latest
+  IMAGE: docker.pkg.github.com/${{ github.repository }}/familie-ef-mock-server:${{ github.sha }}
+  IMAGE_LATEST: docker.pkg.github.com/${{ github.repository }}/familie-ef-mock-server:latest
 
 jobs:
   deploy-to-repo:
