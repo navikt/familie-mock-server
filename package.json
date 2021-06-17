@@ -1,9 +1,9 @@
 {
   "name": "familie-ef-mock-server",
   "version": "1.0.0",
-  "description": "Mock server for familie-ef",
+  "description": "Mock server for familie",
   "main": "app.ts",
-  "repository": "https://github.com/navikt/familie-ef-mock-server.git",
+  "repository": "https://github.com/navikt/familie-mock-server.git",
   "author": "NAV",
   "license": "MIT",
   "private": true,
