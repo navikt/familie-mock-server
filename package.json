@@ -1,5 +1,5 @@
 {
-  "name": "familie-ef-mock-server",
+  "name": "familie-mock-server",
   "version": "1.0.0",
   "description": "Mock server for familie",
   "main": "app.ts",
