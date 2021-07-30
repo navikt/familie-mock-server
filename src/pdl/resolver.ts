@@ -12,31 +12,32 @@ const lagPersonFraCache = (ident: string): Person | undefined => {
         if (cachetPerson === undefined) {
             return hentPerson(ident);
         }
+        console.log('Cachet person: ', cachetPerson);
 
-        defaultPerson.foedsel = [
-            {
-                foedselsdato: cachetPerson.fødselsdato,
-            },
-        ];
-        defaultPerson.navn = [
-            {
-                fornavn: cachetPerson.fornavn,
-                etternavn: cachetPerson.etternavn,
-            },
-        ];
-        defaultPerson.bostedsadresse =
-            cachetPerson.bostedsadresser.length > 0
-                ? cachetPerson.bostedsadresser
-                : defaultPerson.bostedsadresse;
-        defaultPerson.statsborgerskap =
-            cachetPerson.statsborgerskap.length > 0
-                ? cachetPerson.statsborgerskap
-                : defaultPerson.statsborgerskap;
-
-        defaultPerson.familierelasjoner = cachetPerson.familierelasjoner!!;
-        defaultPerson.forelderBarnRelasjon = cachetPerson.familierelasjoner!!;
-
-        return defaultPerson;
+        return {
+            ...defaultPerson,
+            foedsel: [
+                {
+                    foedselsdato: cachetPerson.fødselsdato,
+                },
+            ],
+            navn: [
+                {
+                    fornavn: cachetPerson.fornavn,
+                    etternavn: cachetPerson.etternavn,
+                },
+            ],
+            bostedsadresse:
+                cachetPerson.bostedsadresser.length > 0
+                    ? cachetPerson.bostedsadresser
+                    : defaultPerson.bostedsadresse,
+            statsborgerskap:
+                cachetPerson.statsborgerskap.length > 0
+                    ? cachetPerson.statsborgerskap
+                    : defaultPerson.statsborgerskap,
+            familierelasjoner: cachetPerson.familierelasjoner!!,
+            forelderBarnRelasjon: cachetPerson.familierelasjoner!!,
+        };
     } catch {
         return undefined;
     }
@@ -71,6 +72,7 @@ export default {
         hentPerson(_obj: any, args: any, _context: any, _info: any) {
             const person = lagPersonFraCache(args.ident);
 
+            console.log('Svarer med person: ', person);
             if (person === undefined) {
                 throw new Error('Personen finnes ikke');
             } else {
