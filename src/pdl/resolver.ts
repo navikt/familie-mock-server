@@ -24,8 +24,14 @@ const lagPersonFraCache = (ident: string): Person | undefined => {
                 etternavn: cachetPerson.etternavn,
             },
         ];
-        defaultPerson.bostedsadresse = cachetPerson.bostedsadresser;
-        defaultPerson.statsborgerskap = cachetPerson.statsborgerskap;
+        defaultPerson.bostedsadresse =
+            cachetPerson.bostedsadresser.length > 0
+                ? cachetPerson.bostedsadresser
+                : defaultPerson.bostedsadresse;
+        defaultPerson.statsborgerskap =
+            cachetPerson.statsborgerskap.length > 0
+                ? cachetPerson.statsborgerskap
+                : defaultPerson.statsborgerskap;
 
         defaultPerson.familierelasjoner = cachetPerson.familierelasjoner!!;
         defaultPerson.forelderBarnRelasjon = cachetPerson.familierelasjoner!!;
