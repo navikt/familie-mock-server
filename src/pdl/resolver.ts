@@ -13,6 +13,7 @@ const lagPersonFraCache = (ident: string): Person | undefined => {
             return hentPerson(ident);
         }
         console.log('Cachet person: ', cachetPerson);
+        cachetPerson.bostedsadresse.forEach(adresse => console.log(adresse));
 
         return {
             ...defaultPerson,
@@ -28,8 +29,8 @@ const lagPersonFraCache = (ident: string): Person | undefined => {
                 },
             ],
             bostedsadresse:
-                cachetPerson.bostedsadresser.length > 0
-                    ? cachetPerson.bostedsadresser
+                cachetPerson.bostedsadresse.length > 0
+                    ? cachetPerson.bostedsadresse
                     : defaultPerson.bostedsadresse,
             statsborgerskap:
                 cachetPerson.statsborgerskap.length > 0
