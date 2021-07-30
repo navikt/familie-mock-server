@@ -14,5 +14,5 @@ export interface IRestScenarioPerson {
     etternavn: string;
     infotrygdSaker?: string;
     statsborgerskap: Statsborgerskap[];
-    bostedsadresse: Bostedsadresse[];
+    bostedsadresser: Bostedsadresse[];
 }
