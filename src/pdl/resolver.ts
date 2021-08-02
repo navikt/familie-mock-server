@@ -13,22 +13,24 @@ const lagPersonFraCache = (ident: string): Person | undefined => {
             return hentPerson(ident);
         }
 
-        defaultPerson.foedsel = [
-            {
-                foedselsdato: cachetPerson.fødselsdato,
-            },
-        ];
-        defaultPerson.navn = [
-            {
-                fornavn: cachetPerson.fornavn,
-                etternavn: cachetPerson.etternavn,
-            },
-        ];
-
-        defaultPerson.familierelasjoner = cachetPerson.familierelasjoner!!;
-        defaultPerson.forelderBarnRelasjon = cachetPerson.familierelasjoner!!;
-
-        return defaultPerson;
+        return {
+            ...defaultPerson,
+            foedsel: [
+                {
+                    foedselsdato: cachetPerson.fødselsdato,
+                },
+            ],
+            navn: [
+                {
+                    fornavn: cachetPerson.fornavn,
+                    etternavn: cachetPerson.etternavn,
+                },
+            ],
+            bostedsadresse: cachetPerson.bostedsadresser,
+            statsborgerskap: cachetPerson.statsborgerskap,
+            familierelasjoner: cachetPerson.familierelasjoner!!,
+            forelderBarnRelasjon: cachetPerson.familierelasjoner!!,
+        };
     } catch {
         return undefined;
     }

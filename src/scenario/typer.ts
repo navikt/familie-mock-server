@@ -1,4 +1,4 @@
-import { Familierelasjon } from '../pdl/types';
+import { Familierelasjon, Statsborgerskap, Bostedsadresse } from '../pdl/types';
 
 export interface IRestScenario {
     søker: IRestScenarioPerson;
@@ -13,4 +13,6 @@ export interface IRestScenarioPerson {
     fornavn: string;
     etternavn: string;
     infotrygdSaker?: string;
+    statsborgerskap: Statsborgerskap[];
+    bostedsadresser: Bostedsadresse[];
 }
