@@ -16,12 +16,6 @@
             "kjoenn": "MANN"
         }
     ],
-    "familierelasjoner": [
-        {
-            "relatertPersonsIdent": "01101800033",
-            "relatertPersonsRolle": "BARN"
-        }
-    ],
     "forelderBarnRelasjon": [
         {
             "relatertPersonsIdent": "01101800033",

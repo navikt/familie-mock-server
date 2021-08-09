@@ -40,7 +40,9 @@ const lagPersonFraCache = (ident: string): GQLPerson | undefined => {
             statsborgerskap: cachetPerson.statsborgerskap
                 ? cachetPerson.statsborgerskap
                 : defaultPerson.statsborgerskap,
-            forelderBarnRelasjon: cachetPerson.forelderBarnRelasjon!!,
+            forelderBarnRelasjon: cachetPerson.forelderBarnRelasjon
+                ? cachetPerson.forelderBarnRelasjon
+                : defaultPerson.forelderBarnRelasjon,
         };
     } catch {
         return undefined;

@@ -1,7 +1,7 @@
 import { Express, Request, Response } from 'express';
 import { IRestScenario, IRestScenarioPerson } from './typer';
-import { lagScenarioForPerson, oppdaterFamilierelasjonerForPerson } from './cache';
-import { GQLFamilierelasjonsrolle } from '../pdl/types';
+import { lagScenarioForPerson, oppdaterForelderBarnRelasjonerForPerson } from './cache';
+import { GQLForelderBarnRelasjonRolle } from '../pdl/types';
 import { metadata } from '../pdl/resolver';
 
 export default (app: Express) => {
@@ -15,19 +15,19 @@ export default (app: Express) => {
 
         res.json({
             ...restScenario,
-            søker: oppdaterFamilierelasjonerForPerson(
+            søker: oppdaterForelderBarnRelasjonerForPerson(
                 søker,
                 barna.map(restScenarioPerson => ({
                     relatertPersonsIdent: restScenarioPerson.ident!!,
-                    relatertPersonsRolle: GQLFamilierelasjonsrolle.BARN,
+                    relatertPersonsRolle: GQLForelderBarnRelasjonRolle.BARN,
                     metadata,
                 })),
             ),
             barna: barna.map((restScenarioPerson: IRestScenarioPerson) =>
-                oppdaterFamilierelasjonerForPerson(restScenarioPerson, [
+                oppdaterForelderBarnRelasjonerForPerson(restScenarioPerson, [
                     {
                         relatertPersonsIdent: søker.ident!!,
-                        relatertPersonsRolle: GQLFamilierelasjonsrolle.MOR,
+                        relatertPersonsRolle: GQLForelderBarnRelasjonRolle.MOR,
                         metadata,
                     },
                 ]),
