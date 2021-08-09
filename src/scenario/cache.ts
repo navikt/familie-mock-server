@@ -42,11 +42,11 @@ export const lagScenarioForPerson = (restScenarioPerson: IRestScenarioPerson) =>
 
 export const oppdaterForelderBarnRelasjonerForPerson = (
     restScenarioPerson: IRestScenarioPerson,
-    foreldreBarnRelasjon: GQLForelderBarnRelasjon[],
+    forelderBarnRelasjon: GQLForelderBarnRelasjon[],
 ) => {
-    const restScenarioPersonMedForelderBarnRelasjoner = {
+    const restScenarioPersonMedForelderBarnRelasjoner: IRestScenarioPerson = {
         ...restScenarioPerson,
-        foreldreBarnRelasjon,
+        forelderBarnRelasjon,
     };
 
     scenarioCache = {
