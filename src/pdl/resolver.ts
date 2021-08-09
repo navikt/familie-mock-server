@@ -1,12 +1,18 @@
 import { lesMockFilUtenParse } from '../common';
 import dayjs from 'dayjs';
-import { Person, Foedsel, Navn } from './types';
+import { GQLPerson, GQLFoedsel, GQLNavn } from './types';
 import { IRestScenarioPerson } from '../scenario/typer';
 import { scenarioCache } from '../scenario/cache';
 
-const lagPersonFraCache = (ident: string): Person | undefined => {
+export const metadata = {
+    endringer: [],
+    master: 'true',
+    historisk: false,
+};
+
+const lagPersonFraCache = (ident: string): GQLPerson | undefined => {
     try {
-        const defaultPerson: Person = JSON.parse(lesMockFilUtenParse(`person_default.json`));
+        const defaultPerson: GQLPerson = JSON.parse(lesMockFilUtenParse(`person_default.json`));
         const cachetPerson: IRestScenarioPerson | undefined = scenarioCache[ident];
 
         if (cachetPerson === undefined) {
@@ -18,12 +24,14 @@ const lagPersonFraCache = (ident: string): Person | undefined => {
             foedsel: [
                 {
                     foedselsdato: cachetPerson.fødselsdato,
+                    metadata,
                 },
             ],
             navn: [
                 {
                     fornavn: cachetPerson.fornavn,
                     etternavn: cachetPerson.etternavn,
+                    metadata,
                 },
             ],
             bostedsadresse: cachetPerson.bostedsadresser
@@ -32,22 +40,21 @@ const lagPersonFraCache = (ident: string): Person | undefined => {
             statsborgerskap: cachetPerson.statsborgerskap
                 ? cachetPerson.statsborgerskap
                 : defaultPerson.statsborgerskap,
-            familierelasjoner: cachetPerson.familierelasjoner!!,
-            forelderBarnRelasjon: cachetPerson.familierelasjoner!!,
+            forelderBarnRelasjon: cachetPerson.forelderBarnRelasjon!!,
         };
     } catch {
         return undefined;
     }
 };
 
-const hentPerson = (ident: string): Person | undefined => {
+const hentPerson = (ident: string): GQLPerson | undefined => {
     try {
-        const person: Person = JSON.parse(lesMockFilUtenParse(`person_${ident}.json`));
+        const person: GQLPerson = JSON.parse(lesMockFilUtenParse(`person_${ident}.json`));
 
-        person.foedsel = person.foedsel.map((fødsel: Foedsel) => {
+        person.foedsel = person.foedsel.map((fødsel: GQLFoedsel) => {
             if (
-                person.navn.filter((navn: Navn) => navn.mellomnavn === 'fødselshendelse').length >=
-                1
+                person.navn.filter((navn: GQLNavn) => navn.mellomnavn === 'fødselshendelse')
+                    .length >= 1
             ) {
                 return {
                     ...fødsel,
