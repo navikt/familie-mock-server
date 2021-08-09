@@ -1,6 +1,6 @@
 import { IRestScenarioPerson } from './typer';
 import generator from '../fnr/fnr-generator';
-import { Familierelasjon } from 'pdl/types';
+import { GQLFamilierelasjon } from 'pdl/types';
 
 export let scenarioCache: { [ident: string]: IRestScenarioPerson } = {};
 
@@ -42,7 +42,7 @@ export const lagScenarioForPerson = (restScenarioPerson: IRestScenarioPerson) =>
 
 export const oppdaterFamilierelasjonerForPerson = (
     restScenarioPerson: IRestScenarioPerson,
-    familierelasjoner: Familierelasjon[],
+    familierelasjoner: GQLFamilierelasjon[],
 ) => {
     const restScenarioPersonMedFamilierelasjoner = {
         ...restScenarioPerson,
