@@ -1,4 +1,9 @@
-import { GQLForelderBarnRelasjon, GQLStatsborgerskap, GQLBostedsadresse } from '../pdl/types';
+import {
+    GQLForelderBarnRelasjon,
+    GQLStatsborgerskap,
+    GQLBostedsadresse,
+    GQLFamilierelasjon,
+} from '../pdl/types';
 
 export interface IRestScenario {
     søker: IRestScenarioPerson;
@@ -8,6 +13,7 @@ export interface IRestScenario {
 export interface IRestScenarioPerson {
     ident?: string; // Settes av mock-server
     aktørId?: string; // Settes av mock-server
+    familierelasjoner?: GQLFamilierelasjon[]; // Settes av mock-server
     forelderBarnRelasjon?: GQLForelderBarnRelasjon[]; // Settes av mock-server
     fødselsdato: string;
     fornavn: string;

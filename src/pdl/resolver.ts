@@ -1,6 +1,6 @@
 import { lesMockFilUtenParse } from '../common';
 import dayjs from 'dayjs';
-import { GQLPerson, GQLFoedsel, GQLNavn } from './types';
+import { GQLPerson, GQLFoedsel, GQLNavn, GQLFamilierelasjonsrolle } from './types';
 import { IRestScenarioPerson } from '../scenario/typer';
 import { scenarioCache } from '../scenario/cache';
 
@@ -43,6 +43,14 @@ const lagPersonFraCache = (ident: string): GQLPerson | undefined => {
             forelderBarnRelasjon: cachetPerson.forelderBarnRelasjon
                 ? cachetPerson.forelderBarnRelasjon
                 : defaultPerson.forelderBarnRelasjon,
+            familierelasjoner: (cachetPerson.forelderBarnRelasjon
+                ? cachetPerson.forelderBarnRelasjon
+                : defaultPerson.forelderBarnRelasjon
+            ).map(forelderBarnRelasjon => ({
+                relatertPersonsIdent: forelderBarnRelasjon.relatertPersonsIdent,
+                relatertPersonsRolle: (forelderBarnRelasjon.relatertPersonsRolle as unknown) as GQLFamilierelasjonsrolle,
+                metadata,
+            })),
         };
     } catch {
         return undefined;
