@@ -9,7 +9,11 @@ export default (app: Express) => {
                 melding: 'OK',
                 journalpostferdigstilt: true,
                 journalpostId: `${getId()}`,
-                dokumenter: [],
+                dokumenter: [
+                    {
+                        dokumentInfoId: `${getId()}`,
+                    },
+                ],
             });
         },
     );
