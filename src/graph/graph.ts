@@ -1,10 +1,10 @@
 import { Express, Request, Response } from 'express';
-import { v4 as uuidv4 } from 'uuid';
+import { getId } from '../common';
 
 export default (app: Express) => {
     app.get('/graph/me', (_: Request, res: Response) => {
         res.json({
-            id: uuidv4(),
+            id: getId(),
             onPremisesSamAccountName: 'Z111111',
             userPrincipalName: 'test.testesen@nav.no',
             displayName: 'Test Testersen',
@@ -18,7 +18,7 @@ export default (app: Express) => {
     app.get('/graph/users', (_: Request, res: Response) => {
         res.json([
             {
-                id: uuidv4(),
+                id: getId(),
                 onPremisesSamAccountName: 'Z111111',
                 userPrincipalName: 'test.testesen@nav.no',
                 displayName: 'Test Testersen',
