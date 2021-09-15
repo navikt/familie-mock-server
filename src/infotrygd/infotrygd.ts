@@ -36,9 +36,7 @@ export default (app: Express) => {
 
             if (
                 cachetPersoner.length > 0 &&
-                cachetPersoner.some(
-                    (person: IRestScenarioPerson) => person.infotrygdSaker !== undefined,
-                )
+                cachetPersoner.some((person: IRestScenarioPerson) => person.infotrygdSaker !== null)
             ) {
                 console.log('JA: ', cachetPersoner);
                 return res.json({ harLøpendeBarnetrygd: true });
