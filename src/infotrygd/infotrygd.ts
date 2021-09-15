@@ -38,11 +38,28 @@ export default (app: Express) => {
                 cachetPersoner.length > 0 &&
                 cachetPersoner.some((person: IRestScenarioPerson) => person.infotrygdSaker !== null)
             ) {
-                console.log('JA: ', cachetPersoner);
                 return res.json({ harLøpendeBarnetrygd: true });
             } else {
-                console.log('NEI: ', cachetPersoner);
                 return res.json({ harLøpendeBarnetrygd: false });
+            }
+        },
+    );
+
+    app.post(
+        '/rest/api/infotrygd/ba/infotrygd/barnetrygd/aapen-sak',
+        (req: Request, res: Response) => {
+            const cachetPersoner: IRestScenarioPerson[] = [
+                ...req.body.barn.map((b: string) => scenarioCache[b]),
+                ...req.body.brukere.map((b: string) => scenarioCache[b]),
+            ];
+
+            if (
+                cachetPersoner.length > 0 &&
+                cachetPersoner.some((person: IRestScenarioPerson) => person.infotrygdSaker !== null)
+            ) {
+                return res.json({ harÅpenSak: true });
+            } else {
+                return res.json({ harÅpenSak: false });
             }
         },
     );
