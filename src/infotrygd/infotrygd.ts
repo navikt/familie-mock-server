@@ -34,6 +34,8 @@ export default (app: Express) => {
                 ...req.body.brukere.map((b: string) => scenarioCache[b]),
             ];
 
+            console.log(cachetPersoner);
+
             if (
                 cachetPersoner.some(
                     (person: IRestScenarioPerson) => person.infotrygdSaker !== undefined,
