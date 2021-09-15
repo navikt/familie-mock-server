@@ -33,13 +33,13 @@ configureDokarkiv(app);
 configureDokdist(app);
 configureOppgave(app);
 configureNorg2(app);
-configureInfotrygd(app);
 configureSaf(app);
 configureKodeverk(app);
 configureAareg(app);
 configureSak(app);
 
 app.use(express.json());
+configureInfotrygd(app);
 configureScenario(app);
 
 app.listen(port, '0.0.0.0', (err: Error) => {
