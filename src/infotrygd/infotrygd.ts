@@ -34,15 +34,16 @@ export default (app: Express) => {
                 ...req.body.brukere.map((b: string) => scenarioCache[b]),
             ];
 
-            console.log(cachetPersoner);
-
             if (
+                cachetPersoner.length > 0 &&
                 cachetPersoner.some(
                     (person: IRestScenarioPerson) => person.infotrygdSaker !== undefined,
                 )
             ) {
+                console.log('JA: ', cachetPersoner);
                 return res.json({ harLøpendeBarnetrygd: true });
             } else {
+                console.log('NEI: ', cachetPersoner);
                 return res.json({ harLøpendeBarnetrygd: false });
             }
         },
