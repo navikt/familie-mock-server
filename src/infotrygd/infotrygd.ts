@@ -47,20 +47,8 @@ export default (app: Express) => {
 
     app.post(
         '/rest/api/infotrygd/ba/infotrygd/barnetrygd/aapen-sak',
-        (req: Request, res: Response) => {
-            const cachetPersoner: IRestScenarioPerson[] = [
-                ...req.body.barn.map((b: string) => scenarioCache[b]),
-                ...req.body.brukere.map((b: string) => scenarioCache[b]),
-            ];
-
-            if (
-                cachetPersoner.length > 0 &&
-                cachetPersoner.some((person: IRestScenarioPerson) => person.infotrygdSaker !== null)
-            ) {
-                return res.json({ harÅpenSak: true });
-            } else {
-                return res.json({ harÅpenSak: false });
-            }
+        (_req: Request, res: Response) => {
+            return res.json({ harÅpenSak: false });
         },
     );
 };
