@@ -55,7 +55,6 @@ export default (app: Express) => {
     app.post(
         '/rest/api/infotrygd/ba/infotrygd/barnetrygd/stonad',
         (_req: Request, res: Response) => {
-            const {historikk}  = _req.params;
             return res.json({ barn: [], bruker: [] });
         },
     );
