@@ -51,4 +51,13 @@ export default (app: Express) => {
             return res.json({ harÅpenSak: false });
         },
     );
+
+    app.post(
+        '/rest/api/infotrygd/ba/infotrygd/barnetrygd/stonad',
+        (_req: Request, res: Response) => {
+            const {historikk}  = _req.params;
+            return res.json({ barn: [], bruker: [] });
+        },
+    );
+
 };
