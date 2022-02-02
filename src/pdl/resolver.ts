@@ -51,6 +51,10 @@ const lagPersonFraCache = (ident: string): GQLPerson | undefined => {
                 relatertPersonsRolle: (forelderBarnRelasjon.relatertPersonsRolle as unknown) as GQLFamilierelasjonsrolle,
                 metadata,
             })),
+            kontaktinformasjonForDoedsbo: cachetPerson.kontaktinformasjonForDoedsbo
+                ? cachetPerson.kontaktinformasjonForDoedsbo
+                : defaultPerson.kontaktinformasjonForDoedsbo,
+            doedsfall: cachetPerson.doedsfall ? cachetPerson.doedsfall : defaultPerson.doedsfall,
         };
     } catch {
         return undefined;

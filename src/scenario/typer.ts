@@ -3,6 +3,8 @@ import {
     GQLStatsborgerskap,
     GQLBostedsadresse,
     GQLFamilierelasjon,
+    GQLKontaktinformasjonForDoedsbo,
+    GQLDoedsfall,
 } from '../pdl/types';
 
 export interface IRestScenario {
@@ -21,4 +23,6 @@ export interface IRestScenarioPerson {
     infotrygdSaker?: string;
     statsborgerskap: GQLStatsborgerskap[];
     bostedsadresser: GQLBostedsadresse[];
+    kontaktinformasjonForDoedsbo: GQLKontaktinformasjonForDoedsbo[];
+    doedsfall: GQLDoedsfall[];
 }
