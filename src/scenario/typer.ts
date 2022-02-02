@@ -23,6 +23,6 @@ export interface IRestScenarioPerson {
     infotrygdSaker?: string;
     statsborgerskap: GQLStatsborgerskap[];
     bostedsadresser: GQLBostedsadresse[];
-    kontaktinformasjonForDoedsbo: GQLKontaktinformasjonForDoedsbo[];
-    doedsfall: GQLDoedsfall[];
+    kontaktinformasjonForDoedsbo?: GQLKontaktinformasjonForDoedsbo[];
+    doedsfall?: GQLDoedsfall[];
 }
