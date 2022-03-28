@@ -29,6 +29,13 @@ export const lagScenarioForPerson = (restScenarioPerson: IRestScenarioPerson) =>
         ...restScenarioPerson,
         ident,
         aktørId: `${ident}99`,
+        folkeregisteridentifikator: [
+            {
+                identifikasjonsnummer: ident,
+                status: 'I_BRUK',
+                type: 'FNR',
+            },
+        ],
     };
 
     scenarioCache = {
