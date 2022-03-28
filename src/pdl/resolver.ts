@@ -21,6 +21,9 @@ const lagPersonFraCache = (ident: string): GQLPerson | undefined => {
 
         return {
             ...defaultPerson,
+            folkeregisteridentifikator: cachetPerson.folkeregisteridentifikator
+                ? cachetPerson.folkeregisteridentifikator
+                : defaultPerson.folkeregisteridentifikator,
             foedsel: [
                 {
                     foedselsdato: cachetPerson.fødselsdato,
