@@ -245,8 +245,8 @@ export interface GQLFolkeregisteridentifikator {
     identifikasjonsnummer: string;
     status: string;
     type: string;
-    folkeregistermetadata: GQLFolkeregistermetadata;
-    metadata: GQLMetadata;
+    folkeregistermetadata?: GQLFolkeregistermetadata;
+    metadata?: GQLMetadata;
 }
 
 export interface GQLFolkeregisterpersonstatus {

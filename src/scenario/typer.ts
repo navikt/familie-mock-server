@@ -5,6 +5,7 @@ import {
     GQLFamilierelasjon,
     GQLKontaktinformasjonForDoedsbo,
     GQLDoedsfall,
+    GQLFolkeregisteridentifikator,
 } from '../pdl/types';
 
 export interface IRestScenario {
@@ -17,6 +18,7 @@ export interface IRestScenarioPerson {
     aktørId?: string; // Settes av mock-server
     familierelasjoner?: GQLFamilierelasjon[]; // Settes av mock-server
     forelderBarnRelasjon?: GQLForelderBarnRelasjon[]; // Settes av mock-server
+    folkeregisteridentifikator: GQLFolkeregisteridentifikator[]; // Settes av mock-server
     fødselsdato: string;
     fornavn: string;
     etternavn: string;
