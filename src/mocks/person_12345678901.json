@@ -55,7 +55,13 @@
             "gyldigTilOgMed": null
         }
     ],
-    "opphold": [
-    ],
-    "kontaktinformasjonForDoedsbo": []
+    "opphold": [],
+    "kontaktinformasjonForDoedsbo": [],
+    "folkeregisteridentifikator": [
+        {
+            "identifikasjonsnummer": "12345678901",
+            "status": "I_BRUK",
+            "type": "FNR"
+        }
+    ]
 }
