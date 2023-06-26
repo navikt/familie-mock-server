@@ -102,13 +102,15 @@ export default {
         },
         hentPersonBolk(_obj: any, args: any, _context: any, _info: any) {
             logInfo('hentPersonBolk');
-            args.identer.map((ident: string) => {
+            const response = args.identer.map((ident: string) => {
                 ident: ident;
                 person: {
                     adressebeskyttelse: lagPersonFraCache(ident)?.adressebeskyttelse;
                 }
                 code: 'ok';
             });
+            logInfo(response);
+            return response;
         },
         hentIdenter(_obj: any, args: any, _context: any, _info: any) {
             const cachetPerson: IRestScenarioPerson | undefined = scenarioCache[args.ident];
