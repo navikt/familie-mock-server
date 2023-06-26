@@ -99,6 +99,13 @@ export default {
                 return person;
             }
         },
+        hentPersonBolk(_obj: any, args: any, _context: any, _info: any) {
+            args.identer.map((ident: string) => {
+                ident: ident;
+                person: lagPersonFraCache(ident)?.adressebeskyttelse;
+                code: 'ok';
+            });
+        },
         hentIdenter(_obj: any, args: any, _context: any, _info: any) {
             const cachetPerson: IRestScenarioPerson | undefined = scenarioCache[args.ident];
             return {
