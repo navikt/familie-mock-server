@@ -106,9 +106,7 @@ export default {
             const identer: string[] = args.identer;
             const response = identer.map((ident: string) => ({
                 ident: ident,
-                person: {
-                    adressebeskyttelse: lagPersonFraCache(ident)?.adressebeskyttelse,
-                },
+                person: lagPersonFraCache(ident),
                 code: 'ok',
             }));
             logInfo(response.length.toString());
