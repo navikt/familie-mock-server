@@ -102,14 +102,17 @@ export default {
         },
         hentPersonBolk(_obj: any, args: any, _context: any, _info: any) {
             logInfo('hentPersonBolk');
-            const response = args.identer.map((ident: string) => {
-                ident: ident;
+            logInfo(args.identer);
+            const identer: string[] = args.identer;
+            const response = identer.map((ident: string) => ({
+                ident: ident,
                 person: {
-                    adressebeskyttelse: lagPersonFraCache(ident)?.adressebeskyttelse;
-                }
-                code: 'ok';
-            });
-            logInfo(response);
+                    adressebeskyttelse: lagPersonFraCache(ident)?.adressebeskyttelse,
+                },
+                code: 'ok',
+            }));
+            logInfo(response.length.toString());
+            logInfo(response.toString());
             return response;
         },
         hentIdenter(_obj: any, args: any, _context: any, _info: any) {
