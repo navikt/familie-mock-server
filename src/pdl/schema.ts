@@ -52,8 +52,12 @@ enum IdentGruppe {
 
 type HentPersonBolkResult {
     ident: String!
-    person: Person
+    person: PersonAdressebeskyttelse
     code: String!
+}
+
+type PersonAdressebeskyttelse {
+    adressebeskyttelse: [Adressebeskyttelse]
 }
 
 type Person {

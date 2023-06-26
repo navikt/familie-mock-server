@@ -3,6 +3,7 @@ import dayjs from 'dayjs';
 import { GQLPerson, GQLFoedsel, GQLNavn, GQLFamilierelasjonsrolle } from './types';
 import { IRestScenarioPerson } from '../scenario/typer';
 import { scenarioCache } from '../scenario/cache';
+import { logInfo } from '../logging';
 
 export const metadata = {
     endringer: [],
@@ -100,9 +101,12 @@ export default {
             }
         },
         hentPersonBolk(_obj: any, args: any, _context: any, _info: any) {
+            logInfo('hentPersonBolk');
             args.identer.map((ident: string) => {
                 ident: ident;
-                person: lagPersonFraCache(ident)?.adressebeskyttelse;
+                person: {
+                    adressebeskyttelse: lagPersonFraCache(ident)?.adressebeskyttelse;
+                }
                 code: 'ok';
             });
         },
