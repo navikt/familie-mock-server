@@ -3,7 +3,6 @@ import dayjs from 'dayjs';
 import { GQLPerson, GQLFoedsel, GQLNavn, GQLFamilierelasjonsrolle } from './types';
 import { IRestScenarioPerson } from '../scenario/typer';
 import { scenarioCache } from '../scenario/cache';
-import { logInfo } from '../logging';
 
 export const metadata = {
     endringer: [],
