@@ -1,4 +1,4 @@
-name: Build-Deploy
+name: Bygg og push docker image til GAR
 on:
   workflow_dispatch:
   push:
@@ -37,3 +37,12 @@ jobs:
           team: teamfamilie
           identity_provider: ${{ secrets.NAIS_WORKLOAD_IDENTITY_PROVIDER }} # Provided as Organization Secret
           project_id: ${{ vars.NAIS_MANAGEMENT_PROJECT_ID }} # Provided as Organization Variable
+
+  log-image-repo:
+    name: Log image repo
+    needs: build
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: Log docker image repo
+        run: echo ${{ needs.build.outputs.image }}
