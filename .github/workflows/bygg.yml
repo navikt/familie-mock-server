@@ -1,4 +1,4 @@
-name: Build-Deploy
+name: Bygg for PR
 on:
   pull_request:
 
