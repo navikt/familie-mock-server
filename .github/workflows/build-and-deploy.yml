@@ -45,4 +45,6 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - name: Log docker image repo
-        run: echo ${{ needs.build.outputs.image }}
+        run: |
+          echo "### Docker image :whale:" >> $GITHUB_STEP_SUMMARY
+          echo ${{ needs.build.outputs.image }} >> $GITHUB_STEP_SUMMARY
