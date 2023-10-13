@@ -36,7 +36,6 @@ jobs:
         with:
           team: teamfamilie
           tag: latest
-          push_image: true
           identity_provider: ${{ secrets.NAIS_WORKLOAD_IDENTITY_PROVIDER }} # Provided as Organization Secret
           project_id: ${{ vars.NAIS_MANAGEMENT_PROJECT_ID }} # Provided as Organization Variable
 
