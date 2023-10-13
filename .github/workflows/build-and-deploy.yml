@@ -38,6 +38,15 @@ jobs:
           identity_provider: ${{ secrets.NAIS_WORKLOAD_IDENTITY_PROVIDER }} # Provided as Organization Secret
           project_id: ${{ vars.NAIS_MANAGEMENT_PROJECT_ID }} # Provided as Organization Variable
 
+      - name: Push docker image to GAR
+        uses: nais/docker-build-push@v0
+        id: docker-build-push-with-latest-tag
+        with:
+          tag: latest
+          team: teamfamilie
+          identity_provider: ${{ secrets.NAIS_WORKLOAD_IDENTITY_PROVIDER }} # Provided as Organization Secret
+          project_id: ${{ vars.NAIS_MANAGEMENT_PROJECT_ID }} # Provided as Organization Variable
+
   log-image-repo:
     name: Log image repo
     needs: build
