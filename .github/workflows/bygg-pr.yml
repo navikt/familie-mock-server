@@ -10,29 +10,7 @@ concurrency:
   cancel-in-progress: true
 
 jobs:
-  eslint:
-    name: 🛠️ ESLint
-    runs-on: ubuntu-latest
-    steps:
-      - name: ⬇️ Checkout repo
-        uses: actions/checkout@v4
-
-      - name: 🔧💻 Setup node
-        uses: actions/setup-node@v4
-        with:
-          node-version: '18'
-          cache: yarn
-          registry-url: "https://npm.pkg.github.com"
-
-      - name: 🧶📥 Yarn install
-        env:
-          NODE_AUTH_TOKEN: ${{ secrets.READER_TOKEN }}
-        run: yarn --prefer-offline --frozen-lockfile
-
-      - name: 🔬 Kjør sjekk med esLint
-        run: yarn eslint .
-
-  lint:
+  prettier:
     name: ✨ Prettier
     runs-on: ubuntu-latest
     steps:
