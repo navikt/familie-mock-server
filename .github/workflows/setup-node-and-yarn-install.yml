@@ -1,0 +1,19 @@
+name: Set up node and run yarn install
+on:
+  workflow_call:
+
+jobs:
+  setup:
+    runs-on: ubuntu-latest
+    steps:
+      - name: 🔧💻 Setup node
+        uses: actions/setup-node@v4
+        with:
+          node-version: '18'
+          cache: yarn
+          registry-url: "https://npm.pkg.github.com"
+
+      - name: 🧶📥 Yarn install
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.READER_TOKEN }}
+        run: yarn --prefer-offline --frozen-lockfile

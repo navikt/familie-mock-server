@@ -1,0 +1,44 @@
+name: Build PR
+on:
+  pull_request:
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref_name }}
+  cancel-in-progress: true
+
+jobs:
+  eslint:
+    runs-on: ubuntu-latest
+    steps:
+      - name: ⬇️ Checkout repo
+        uses: actions/checkout@v4
+
+      - name: 🔧💻 🧶📥 Set up node and run yarn install
+        uses: ./.github/workflows/setup-node-and-yarn-install.yml@main
+
+      - name: 🔬 Kjør sjekk med esLint
+        run: eslint-check
+
+  lint:
+    runs-on: ubuntu-latest
+    steps:
+      - name: ⬇️ Checkout repo
+        uses: actions/checkout@v4
+
+      - name: 🔧💻 🧶📥 Set up node and run yarn install
+        uses: ./.github/workflows/setup-node-and-yarn-install.yml@main
+
+      - name: 🔬 Kjør sjekk med prettier
+        run: yarn prettier-check
+
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: ⬇️ Checkout repo
+        uses: actions/checkout@v4
+
+      - name: 🔧💻 🧶📥 Set up node and run yarn install
+        uses: ./.github/workflows/setup-node-and-yarn-install.yml@main
+
+      - name: 🧶🏗️ Yarn build
+        run: yarn build

@@ -11,7 +11,9 @@
     "start": "node ./dist/app.js",
     "start:dev": "tsc-watch --onSuccess \"node ./dist/app.js\"",
     "build": "tsc",
-    "codegen": "graphql-codegen --config codegen.yml"
+    "codegen": "graphql-codegen --config codegen.yml",
+    "eslint-check": "eslint .",
+    "prettier-check": "prettier --check ."
   },
   "husky": {
     "hooks": {
