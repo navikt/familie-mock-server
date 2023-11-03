@@ -52,12 +52,9 @@ export default (app: Express) => {
         },
     );
 
-    app.post(
-        '/rest/api/infotrygd/ba/infotrygd/barnetrygd/brev',
-        (_req: Request, res: Response) => {
-            return res.json({ harSendtBrev: false, listeBrevhendelser: [] });
-        },
-    );
+    app.post('/rest/api/infotrygd/ba/infotrygd/barnetrygd/brev', (_req: Request, res: Response) => {
+        return res.json({ harSendtBrev: false, listeBrevhendelser: [] });
+    });
 
     app.post(
         '/rest/api/infotrygd/ba/infotrygd/barnetrygd/stonad',
@@ -65,5 +62,4 @@ export default (app: Express) => {
             return res.json({ barn: [], bruker: [] });
         },
     );
-
 };

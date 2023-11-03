@@ -24,7 +24,10 @@ export const genererFnr = (fødselsdato: string): string => {
 };
 
 export const lagScenarioForPerson = (restScenarioPerson: IRestScenarioPerson) => {
-    const ident: string = genererFnr(restScenarioPerson.fødselsdato);
+    const ident: string = restScenarioPerson.ident
+        ? restScenarioPerson.ident
+        : genererFnr(restScenarioPerson.fødselsdato);
+
     const restScenarioPersonMedIdenter = {
         ...restScenarioPerson,
         ident,

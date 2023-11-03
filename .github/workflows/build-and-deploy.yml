@@ -1,35 +1,51 @@
-name: Build-Deploy
+name: Bygg og push docker image til GAR
 on:
+  workflow_dispatch:
   push:
     branches:
-      - '**'
-
-env:
-  IMAGE: ghcr.io/navikt/familie-mock-server/familie-mock-server:${{ github.sha }}
-  IMAGE_LATEST: ghcr.io/navikt/familie-mock-server/familie-mock-server:latest
+      - 'main'
 
 jobs:
-  deploy-to-repo:
-    name: Bygg app/image, push til github
+  build:
+    name: Build and push Docker container 🐳
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      id-token: write
+    outputs:
+      image: ${{ steps.docker-build-push.outputs.image }}
+    env:
+      NPM_AUTH_TOKEN: ${{ secrets.READER_TOKEN }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '16'
+          cache: yarn
+          registry-url: "https://npm.pkg.github.com"
+
+      - name: Yarn install
+        run: yarn --prefer-offline --frozen-lockfile
+
+      - name: Build
+        run: yarn build
+
+      - name: Push docker image to GAR
+        uses: nais/docker-build-push@v0
+        id: docker-build-push
+        with:
+          team: teamfamilie
+          tag: latest
+          identity_provider: ${{ secrets.NAIS_WORKLOAD_IDENTITY_PROVIDER }} # Provided as Organization Secret
+          project_id: ${{ vars.NAIS_MANAGEMENT_PROJECT_ID }} # Provided as Organization Variable
+
+  log-image-repo:
+    name: Log image repo
+    needs: build
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v2
-      - name: Bygg app
+      - uses: actions/checkout@v4
+      - name: Log docker image repo
         run: |
-          yarn
-          yarn build
-      - name: Bygg Docker image
-        run: |
-          docker build . -t ${IMAGE} -t ${IMAGE_LATEST}
-      - name: Login to GitHub Container Registry
-        uses: docker/login-action@49ed152c8eca782a232dede0303416e8f356c37b # Use commit-sha1 instead of tag for security concerns
-        with:
-          registry: ghcr.io
-          username: ${{ github.actor }}
-          password: ${{ secrets.GITHUB_TOKEN }}
-      - name: Push Docker image med versjonstag
-        run: docker push ${IMAGE}
-      - name: Push Docker image med 'latest' tag
-        if: github.ref == 'refs/heads/master'
-        run: docker push ${IMAGE_LATEST}
+          echo "### Docker image :whale:" >> $GITHUB_STEP_SUMMARY
+          echo ${{ needs.build.outputs.image }} >> $GITHUB_STEP_SUMMARY
