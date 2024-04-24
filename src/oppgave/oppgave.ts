@@ -22,7 +22,7 @@ export default (app: Express) => {
     app.get('/rest/api/oppgave/api/v1/oppgaver/:oppgaveId', (_req: Request, res: Response) => {
         res.json(hentOppgave());
     });
-    app.get('/rest/api/oppgave/api/v1/oppgaver/mappe/finn/:enhetsnr', (_req: Request, res: Response) => {
+    app.get('/rest/api/oppgave/api/v1/mapper', (_req: Request, res: Response) => {
         res.json(lesMockFil(`mapper.json`));
     });
 
