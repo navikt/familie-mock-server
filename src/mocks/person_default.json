@@ -1,6 +1,7 @@
 {
     "folkeregisteridentifikator": [],
     "foedsel": [],
+    "foedselsdato": [],
     "navn": [],
     "kjoenn": [{
         "kjoenn": "KVINNE"

@@ -30,6 +30,12 @@ const lagPersonFraCache = (ident: string): GQLPerson | undefined => {
                     metadata,
                 },
             ],
+            foedselsdato: [
+                {
+                    foedselsdato: cachetPerson.fødselsdato,
+                    metadata,
+                },
+            ],
             navn: [
                 {
                     fornavn: cachetPerson.fornavn,

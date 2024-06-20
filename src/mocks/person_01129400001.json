@@ -4,6 +4,11 @@
             "foedselsdato": "1994-12-01"
         }
     ],
+    "foedselsdato": [
+        {
+            "foedselsdato": "1994-12-01"
+        }
+    ],
     "navn": [
         {
             "fornavn": "Mor Hendelse",
