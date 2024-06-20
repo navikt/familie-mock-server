@@ -4,6 +4,11 @@
             "foedselsdato": "1990-01-01"
         }
     ],
+    "foedselsdato": [
+        {
+            "foedselsdato": "1990-01-01"
+        }
+    ],
     "navn": [
         {
             "fornavn": "Mor",

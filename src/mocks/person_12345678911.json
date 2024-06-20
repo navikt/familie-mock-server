@@ -4,6 +4,11 @@
             "foedselsdato": "1995-01-01"
         }
     ],
+    "foedselsdato": [
+        {
+            "foedselsdato": "1995-01-01"
+        }
+    ],
     "navn": [
         {
             "fornavn": "Far",

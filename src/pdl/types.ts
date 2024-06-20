@@ -36,6 +36,7 @@ export interface GQLPerson {
      */
     familierelasjoner: Array<GQLFamilierelasjon>;
     foedsel: Array<GQLFoedsel>;
+    foedselsdato: Array<GQLFoedselsdato>;
     folkeregisteridentifikator: Array<GQLFolkeregisteridentifikator>;
     folkeregisterpersonstatus: Array<GQLFolkeregisterpersonstatus>;
     forelderBarnRelasjon: Array<GQLForelderBarnRelasjon>;
@@ -232,6 +233,13 @@ export enum GQLFamilierelasjonsrolle {
 }
 
 export interface GQLFoedsel {
+    foedselsaar?: number;
+    foedselsdato?: GQLDate;
+    folkeregistermetadata?: GQLFolkeregistermetadata;
+    metadata: GQLMetadata;
+}
+
+export interface GQLFoedselsdato {
     foedselsaar?: number;
     foedselsdato?: GQLDate;
     foedeland?: string;
