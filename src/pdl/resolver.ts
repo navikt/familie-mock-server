@@ -64,6 +64,9 @@ const lagPersonFraCache = (ident: string): GQLPerson | undefined => {
                 ? cachetPerson.kontaktinformasjonForDoedsbo
                 : defaultPerson.kontaktinformasjonForDoedsbo,
             doedsfall: cachetPerson.doedsfall ? cachetPerson.doedsfall : defaultPerson.doedsfall,
+            doedfoedtBarn: cachetPerson.doedfoedtBarn
+                ? cachetPerson.doedfoedtBarn
+                : defaultPerson.doedfoedtBarn,
         };
     } catch {
         return undefined;
