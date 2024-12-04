@@ -6,6 +6,7 @@ import {
     GQLKontaktinformasjonForDoedsbo,
     GQLDoedsfall,
     GQLFolkeregisteridentifikator,
+    GQLDoedfoedtBarn,
 } from '../pdl/types';
 
 export interface IRestScenario {
@@ -27,4 +28,5 @@ export interface IRestScenarioPerson {
     bostedsadresser: GQLBostedsadresse[];
     kontaktinformasjonForDoedsbo?: GQLKontaktinformasjonForDoedsbo[];
     doedsfall?: GQLDoedsfall[];
+    doedfoedtBarn?: GQLDoedfoedtBarn[];
 }
