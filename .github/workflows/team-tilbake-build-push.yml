@@ -1,4 +1,4 @@
-name: Bygg og push docker image til GAR
+name: Bygg og push docker image til team tilbake GAR
 on:
   workflow_dispatch:
   push:
@@ -12,8 +12,6 @@ jobs:
     permissions:
       contents: read
       id-token: write
-    outputs:
-      image: ${{ steps.docker-build-push.outputs.image }}
     env:
       NPM_AUTH_TOKEN: ${{ secrets.READER_TOKEN }}
     steps:
@@ -34,18 +32,5 @@ jobs:
         uses: nais/docker-build-push@v0
         id: docker-build-push
         with:
-          team: teamfamilie
+          team: tilbake
           tag: latest
-          identity_provider: ${{ secrets.NAIS_WORKLOAD_IDENTITY_PROVIDER }} # Provided as Organization Secret
-          project_id: ${{ vars.NAIS_MANAGEMENT_PROJECT_ID }} # Provided as Organization Variable
-
-  log-image-repo:
-    name: Log image repo
-    needs: build
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v4
-      - name: Log docker image repo
-        run: |
-          echo "### Docker image :whale:" >> $GITHUB_STEP_SUMMARY
-          echo ${{ needs.build.outputs.image }} >> $GITHUB_STEP_SUMMARY
